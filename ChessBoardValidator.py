@@ -18,38 +18,49 @@ def isValidChessBoard(board):
     validPieces = {'king', 'queen', 'rook', 'bishop', 'knight', 'pawn'}
     blackPieces = 0
     whitePieces = 0
-
+    
+    # iterates through the given chessboard
     for position, piece in board.items():
+         
+        # checks if pieces are on a valid position
         if position not in validBoard:
             print(f'Invalid spot: {position}')
             return False
         
-        if  len(piece) < 2 or piece[0] not in pieceColor or piece[1:] not in validPieces:
+        # checks if there's valid pieces on the board
+        if len(piece) < 2 or piece[0] not in pieceColor or piece[1:] not in validPieces:
             print(f'Invalid piece: {piece} at position: {position}')
             return False
         
+        # counts the amount of each chess piece thats on the board
         if piece in pieceCount:
             pieceCount[piece] += 1
 
+        # counts the total amount of chess pieces Black and White has on the board
         if piece[0] == 'w':
             whitePieces += 1
         elif piece[0] == 'b':
             blackPieces += 1
 
+    # checks if there's a valid amount of Black and White pawns on the board
     if pieceCount['wpawn'] > 8 or pieceCount['bpawn'] > 8:
         print('One side has too many pawns on the board')
         return False
+    # checks if there's at least 1 King on the board for Black and White
     if pieceCount['wking'] != 1 or pieceCount['bking'] != 1:
         print('Invalid amount of kings on the board')
         return False
+    # checks if there's no more than 16 pieces on the board for either Black or White
     if blackPieces > 16 or whitePieces > 16:
         print('One side has too many pieces on the board')
         return False
     
+    # if all the above checks pass than lets the user know that the board is valid
     print('This is a valid chessboard')
 
 #------------------------------Main Code--------------------------------#
 
+# random chessboard positioning to test the isValidChessBoard() function
 chessBoard = {'1h': 'bking', '6c': 'wqueen', '2g': 'bbishop', '5h': 'bqueen', '1e': 'wking'} 
 
-isValidChessBoard(chessBoard)
+isValidChessBoard(chessBoard) # calls the function
