@@ -37,11 +37,10 @@ def addToInventory(inventory, addedItems):
     # iterates through the newly found items
     for item in addedItems:
         
-        # updates the current key's value by 1 in invetory dictionary, will also add a new item if not previosly in inventory
+        # updates the current key's value by 1 in inventory dictionary, will also add a new item if not previosly in inventory
         inventory[item] = inventory.get(item, 0) + 1
     
     return inventory # return the updated inventory 
-
 
 
 #-----------------------------------------------MAIN CODE-------------------------------------------------#
