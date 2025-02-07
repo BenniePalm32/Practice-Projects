@@ -34,18 +34,20 @@ def displayInventory(inventory):
 # This function will add any new items found and add those items to your inventory
 def addToInventory(inventory, addedItems):
 
+    # iterates through the newly found items
     for item in addedItems:
         
+        # updates the current key's value by 1 in invetory dictionary, will also add a new item if not previosly in inventory
         inventory[item] = inventory.get(item, 0) + 1
     
-    return inventory
+    return inventory # return the updated inventory 
 
 
 
 #-----------------------------------------------MAIN CODE-------------------------------------------------#
 
 currentInventory = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12} # dictionary of current inventory
-foundLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby'] # newly found loot to add to the current inventory
+foundLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby'] # newly found items to add to the current inventory
 
 print('Previous')
 displayInventory(currentInventory) # calling the function to print out the original inventory 
