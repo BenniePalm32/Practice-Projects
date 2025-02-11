@@ -22,8 +22,12 @@ def displayInventory(inventory):
     # iterate through the items and their totals
     for item, total in inventory.items():
         
-        # display the total amount of an individual item
-        print(f"{total} {item}('s)\n")
+        if total <= 1:
+
+            # display the total amount of an individual item(s)
+            print(f"{total} {item}\n")
+        else:
+            print(f"{total} {item}'s\n") 
 
         # updates the total item iventory
         itemTotal += total 
