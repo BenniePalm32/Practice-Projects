@@ -27,7 +27,7 @@ def displayInventory(inventory):
             # display the total amount of an individual item(s)
             print(f"{total} {item}\n")
         else:
-            print(f"{total} {item}'s\n") 
+            print(f"{total} {item}s\n") 
 
         # updates the total item iventory
         itemTotal += total 
