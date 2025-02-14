@@ -19,15 +19,29 @@ the printTable() funcion would print the following:
 
 '''
 
+def printTable(table):
+    
+    columnWidth = [0] * len(table)
+    lengthOfList = len(table[0])
+    
+    for tableLen in range(len(table)):
+        sortedTable = sorted(table[tableLen], key = len)
+        columnWidth[tableLen] = len(sortedTable[-1])
+        
+    for row in range(lengthOfList):
+        print()
+        for column in range(len(table)):
+            string = table[column][row]
+            print(string.rjust(columnWidth[column]), end = ' ')
+
 
 tableData =  [['apples', 'oranges', 'cherries', 'banana'],
              ['Alice', 'Bob', 'Carol', 'David'],
              ['dogs', 'cats', 'moose', 'goose']]
-
-def printTable(table):
-    columnWidth = [0] * len(table)
-    lenOfList = len(table[0])
-
-    for column in range(len(table)):
+   
+printTable(tableData)
+        
+            
+        
         
 
