@@ -21,25 +21,27 @@ the printTable() funcion would print the following:
 
 def printTable(table):
     
-    columnWidth = [0] * len(table)
-    lengthOfList = len(table[0])
+    columnWidth = [0] * len(table) # Holds the maximum width of each column
+    lengthOfList = len(table[0]) # The number of rows (all sublists have the same length)
     
-    for tableLen in range(len(table)):
-        sortedTable = sorted(table[tableLen], key = len)
-        columnWidth[tableLen] = len(sortedTable[-1])
-        
+    # Finds the max width of each column
+    for column in range(len(table)): 
+        sortedColumn = sorted(table[column], key=len)
+        columnWidth[column] = len(sortedColumn[-1]) # sets the max string length in each sublist
+
+    # Print the table with each column right justified   
     for row in range(lengthOfList):
         print()
         for column in range(len(table)):
-            string = table[column][row]
-            print(string.rjust(columnWidth[column]), end = ' ')
+            string = table[column][row] 
+            print(string.rjust(columnWidth[column]), end =' ')
 
-
+# Test list of lists variable
 tableData =  [['apples', 'oranges', 'cherries', 'banana'],
              ['Alice', 'Bob', 'Carol', 'David'],
              ['dogs', 'cats', 'moose', 'goose']]
    
-printTable(tableData)
+printTable(tableData) # Calling the function 
         
             
         
